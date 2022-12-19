@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #121212;
+}
+
+header {
+  background-color: #121212;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+main {
+  width: 90vw;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+canvas {
+  background-color: #fff;
+}
