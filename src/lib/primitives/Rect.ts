@@ -1,37 +1,33 @@
-import { GameObject } from '../../interfaces/GameObject';
-import { GameInput } from '../../interfaces/Input';
+import { EngineState } from '../../engine/interfaces/Engine';
+import { GameObject } from '../../engine/interfaces/GameObject';
 
 export interface RectProps {
   x: number;
   y: number;
-  dx: number;
-  dy: number;
   width: number;
   height: number;
-  supportsInputs: boolean;
   color?: string;
 }
 
 export class Rect implements GameObject {
-  readonly id: string;
-  readonly supportsInputs: boolean;
+  protected __engineState: EngineState;
+  public readonly id: string;
 
-  constructor(private props: RectProps) {
+  constructor(private _props: RectProps) {
     this.id = crypto.randomUUID();
-    this.supportsInputs = props.supportsInputs;
   }
 
   public Draw(ctx: CanvasRenderingContext2D): void {
-    ctx.fillStyle = this.props.color ?? '#000';
+    ctx.fillStyle = this._props.color ?? '#000';
     ctx.fillRect(
-      this.props.x,
-      this.props.y,
-      this.props.width,
-      this.props.height
+      this._props.x,
+      this._props.y,
+      this._props.width,
+      this._props.height
     );
   }
 
-  public Update(): void {}
-
-  public OnInput(input: GameInput) {}
+  public Update(s: EngineState): void {
+    this.__engineState = s;
+  }
 }
