@@ -1,9 +1,14 @@
-import { FRICTION_MULTIPLIER, GRAVITY, GROUND_Y } from '../data/constants';
-import { EngineState } from '../engine/interfaces/Engine';
-import { Rect, RectProps } from './primitives/Rect';
+import { FRICTION_MULTIPLIER, GRAVITY, GROUND_Y } from '../../data/constants';
+import { EngineState } from '../../engine/interfaces/Engine';
+import { Rect, RectProps } from './Rect';
 
-interface BirdProps extends RectProps {
+export interface BirdProps extends RectProps {
   dy: number;
+}
+
+export interface BirdState extends BirdProps {
+  isJumping: boolean;
+  verticalAcceleration: number;
 }
 
 export class Bird extends Rect {
@@ -27,7 +32,7 @@ export class Bird extends Rect {
     this._UpdateVerticalPosition();
   }
 
-  public GetState() {
+  public GetState(): BirdState {
     return {
       ...this._birdProps,
       isJumping: this._isJumping,
