@@ -13,6 +13,8 @@ export interface EngineState {
 }
 
 export abstract class Engine {
+  abstract onEachFrame?: (state: EngineState) => void;
+  abstract onStop?: () => void;
   abstract Run(): void;
   abstract Stop(): void;
   abstract GetEngineState(): EngineState;
