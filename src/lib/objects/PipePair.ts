@@ -18,6 +18,20 @@ interface Pipe {
   height: number;
 }
 
+export interface PipePairState {
+  x: number;
+  y: number;
+  width: number;
+  firstPipe: {
+    y: number;
+    height: number;
+  };
+  secondPipe: {
+    y: number;
+    height: number;
+  };
+}
+
 export class PipePair implements GameObject {
   public readonly id: string;
   private readonly _minHeight = 40;
@@ -52,14 +66,29 @@ export class PipePair implements GameObject {
   }
 
   Update(state: EngineState): void {
-    if (this._props.x + this._minWidth + this._props.dx < WORLD_X_START - 30) {
-      console.log('Destroying self');
+    if (this._props.x + this._minWidth + this._props.dx < WORLD_X_START) {
       state.RequestDestroy(this.id);
 
       return;
     }
 
     this._props.x -= this._props.dx;
+  }
+
+  GetState(): PipePairState {
+    return {
+      x: this._props.x,
+      y: this._props.y,
+      width: this._minWidth,
+      firstPipe: {
+        y: this._pipe1.y,
+        height: this._pipe1.height,
+      },
+      secondPipe: {
+        y: this._pipe2.y,
+        height: this._pipe2.height,
+      },
+    };
   }
 
   private _GetRandomHeight() {
