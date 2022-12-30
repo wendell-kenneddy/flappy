@@ -30,4 +30,6 @@ export class Rect implements GameObject {
   public Update(s: EngineState): void {
     this.__engineState = s;
   }
+
+  public GetState() {}
 }
