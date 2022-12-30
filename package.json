@@ -1,8 +1,9 @@
 {
-  "name": "gravity",
-  "description": "An experiment with canvas simulating gravity.",
+  "name": "flappy",
+  "description": "A simple flappy bird game.",
   "private": true,
   "version": "0.0.0",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
