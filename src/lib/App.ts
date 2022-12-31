@@ -1,6 +1,6 @@
 import { GROUND_Y, WORLD_X_START } from '../data/constants';
 import { CoreEngine } from '../engine/CoreEngine';
-import { KeyboardInputSystem } from '../engine/input-systems/KeyboardInputSystem';
+import { TouchClickInputSystem } from '../engine/input-systems/TouchClickInputSystem';
 import { GlobalRenderer } from '../engine/renderers/GlobalRenderer';
 import { Bird } from './objects/Bird';
 import { Rect } from './objects/Rect';
@@ -19,9 +19,9 @@ export class App {
   private readonly _globalRenderer = new GlobalRenderer(
     this._canvas.getContext('2d') as CanvasRenderingContext2D
   );
-  private readonly _keyboardInputSystem = new KeyboardInputSystem();
+  private readonly _touchClickInputSystem = new TouchClickInputSystem();
   private readonly _coreEngine = new CoreEngine(
-    this._keyboardInputSystem,
+    this._touchClickInputSystem,
     this._globalRenderer
   );
 
