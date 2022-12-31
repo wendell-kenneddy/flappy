@@ -50,7 +50,7 @@ export class Bird extends Rect {
   private _ChangeMovementDirection() {
     const { keys } = this.__engineState.inputSystemState;
 
-    if (keys['ArrowUp']) this._Jump();
+    if (keys['active']) this._Jump();
   }
 
   private _UpdateVerticalPosition() {
@@ -58,8 +58,6 @@ export class Bird extends Rect {
       this._birdProps.y = GROUND_Y - this._birdProps.height;
       this._canJump = true;
       this._isJumping = false;
-      // const { stores } = this.__engineState;
-      // stores['game-state'] = 0;
       return;
     }
 
