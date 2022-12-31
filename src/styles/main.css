@@ -64,3 +64,13 @@ button:focus {
   outline-width: 2px;
   outline-offset: 2px;
 }
+
+p {
+  background: #fff;
+  border: 1px solid var(--red-500);
+  border-radius: 4px;
+  padding: 0.4rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--red-500);
+}
